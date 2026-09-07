@@ -704,7 +704,46 @@ export default function SSEPage() {
         </section>
 
         {/* ════════════════════════════════════════════════════════
-            2. ABOUT NSE SSE & WHAT IS ZCZP INSTRUMENT
+            2. GGPT TRACK RECORD & HONOURS
+        ════════════════════════════════════════════════════════ */}
+        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#004e63] via-[#007b99] to-(--color-primary) text-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+              <span className="text-xs font-bold uppercase tracking-widest text-(--color-secondary)">Proven Track Record</span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">About GIRGANGA PARIVAR TRUST</h3>
+              <p className="text-cyan-100/90 text-xs sm:text-sm mt-2">Over a decade of transformative water harvesting work across Gujarat.</p>
+            </div>
+
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
+              {ggptTrackRecord.map((tr, idx) => (
+                <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm">
+                  <p className="text-xl sm:text-2xl font-black text-(--color-secondary)">{tr.val}</p>
+                  <p className="text-xs font-bold text-white uppercase tracking-wider mt-1">{tr.label}</p>
+                  <p className="text-[10px] text-cyan-100/80 mt-1">{tr.sub}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Awards Grid */}
+            <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/20">
+              <p className="text-xs font-bold uppercase tracking-widest text-cyan-200 text-center mb-6">Honours & National Recognition</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                {ggptAwards.map((aw, idx) => (
+                  <div key={idx} className="flex items-start gap-3 bg-white/10 p-3.5 sm:p-4 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <Award className="w-6 h-6 text-(--color-secondary) shrink-0" />
+                    <div>
+                      <h4 className="font-bold text-white text-xs">{aw.title}</h4>
+                      <p className="text-[11px] text-cyan-100/80">{aw.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════
+            3. ABOUT NSE SSE & WHAT IS ZCZP INSTRUMENT
         ════════════════════════════════════════════════════════ */}
         <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -767,14 +806,14 @@ export default function SSEPage() {
         </section>
 
         {/* ════════════════════════════════════════════════════════
-            3. UPCOMING PUBLIC ISSUE SPECIFICATION GRID
+            3. PUBLIC ISSUE SPECIFICATION GRID
         ════════════════════════════════════════════════════════ */}
         <section id="issue-details" className="py-12 sm:py-16 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
             <SectionHeader
               eyebrow="Public Issue Details"
-              title="About GIRGANGA PARIVAR TRUST’s"
-              highlight="Upcoming Public Issue"
+              title="About GIRGANGA PARIVAR TRUST's"
+              highlight="Public Issue"
               subtitle="Key highlights of the proposed fundraising issue registered on the NSE Social Stock Exchange platform."
             />
 
@@ -793,6 +832,22 @@ export default function SSEPage() {
                   <h3 className="text-sm sm:text-lg font-extrabold text-slate-900 mt-1 leading-snug break-words">{item.value}</h3>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Project Map Image */}
+            <div className="mt-10 sm:mt-12">
+              <div className="w-full flex justify-center">
+                <div className="relative w-full max-w-5xl mx-auto">
+                  <Image
+                    src="/image/sse/project_map.png"
+                    alt="Project Map - Paddhari Block, Rajkot District, Gujarat"
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto rounded-2xl shadow-lg border border-slate-200"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -853,6 +908,22 @@ export default function SSEPage() {
               ))}
             </div>
 
+            {/* Before/After Image */}
+            <div className="mt-10 sm:mt-12">
+              <div className="w-full flex justify-center">
+                <div className="relative w-full max-w-5xl mx-auto">
+                  <Image
+                    src="/image/sse/before_after.png"
+                    alt="Before and After - Water Conservation Impact"
+                    width={1200}
+                    height={600}
+                    className="w-full h-auto rounded-2xl shadow-lg border border-slate-200"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Our Integrated Solution */}
             <div className="mt-10 sm:mt-16 bg-gradient-to-r from-(--color-primary) via-[#008ba9] to-[#005f77] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 text-white shadow-xl border border-cyan-400/20">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
@@ -895,6 +966,20 @@ export default function SSEPage() {
             highlight="Investment Goes?"
             subtitle="Complete interactive breakdown of fund allocation for the ₹1,08,73,000 Integrated Water Conservation & Groundwater Recharge Project based on official NSE Social Stock Exchange disclosures."
           />
+
+          {/* Client-provided investment pie chart image */}
+          <div className="w-full flex justify-center">
+            <div className="relative w-full max-w-4xl mx-auto">
+              <Image
+                src="/image/sse/investment-pie-chart.png"
+                alt="Investment Pie Chart - Resource Allocation Breakdown"
+                width={1200}
+                height={800}
+                className="w-full h-auto rounded-2xl shadow-lg border border-slate-200"
+                priority
+              />
+            </div>
+          </div>
 
           <InvestmentPieChart />
         </section>
@@ -1051,41 +1136,6 @@ export default function SSEPage() {
                   <p className="text-slate-600 text-xs leading-normal">{ben.desc}</p>
                 </div>
               ))}
-            </div>
-
-            {/* GGPT Historical Performance Numbers */}
-            <div className="mt-10 sm:mt-16 bg-gradient-to-r from-[#004e63] via-[#007b99] to-(--color-primary) p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl border border-cyan-400/30 text-white shadow-xl">
-              <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-                <span className="text-xs font-bold uppercase tracking-widest text-(--color-secondary)">Proven Track Record</span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">About GIRGANGA PARIVAR TRUST</h3>
-                <p className="text-cyan-100/90 text-xs sm:text-sm mt-2">Over a decade of transformative water harvesting work across Gujarat.</p>
-              </div>
-
-              <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
-                {ggptTrackRecord.map((tr, idx) => (
-                  <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm">
-                    <p className="text-xl sm:text-2xl font-black text-(--color-secondary)">{tr.val}</p>
-                    <p className="text-xs font-bold text-white uppercase tracking-wider mt-1">{tr.label}</p>
-                    <p className="text-[10px] text-cyan-100/80 mt-1">{tr.sub}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Awards Grid */}
-              <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/20">
-                <p className="text-xs font-bold uppercase tracking-widest text-cyan-200 text-center mb-6">Honours & National Recognition</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                  {ggptAwards.map((aw, idx) => (
-                    <div key={idx} className="flex items-start gap-3 bg-white/10 p-3.5 sm:p-4 rounded-xl border border-white/20 backdrop-blur-sm">
-                      <Award className="w-6 h-6 text-(--color-secondary) shrink-0" />
-                      <div>
-                        <h4 className="font-bold text-white text-xs">{aw.title}</h4>
-                        <p className="text-[11px] text-cyan-100/80">{aw.detail}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </section>

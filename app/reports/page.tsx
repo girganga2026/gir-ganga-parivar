@@ -11,6 +11,13 @@ const certificateFiles = [
   "Annual Activity Report 2023-24.pdf",
   "Audit Report_2024-25.pdf",
   "Annual Activity Report 2024-25.pdf",
+  "Audit Report_2025-26.pdf",
+];
+
+const otherDocuments = [
+  "GGPT_Organisation_Profile_2026-27.pdf_compressed.pdf",
+  "Registration Certificate_Guj & Eng_compressed.pdf",
+  "Sec.80G(5).pdf",
 ];
 
 const toTitle = (fileName: string) =>
@@ -40,43 +47,91 @@ export default function CertificatesPage() {
         </motion.h1>
       </section>
 
-      <section className="container">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
-          {certificateFiles.map((file, index) => {
-            const href = `/certificates/${encodeURIComponent(file)}`;
+      {/* Reports & Certificates Section */}
+      <section className="container mt-8 sm:mt-12">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Reports & Certificates</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {certificateFiles.map((file, index) => {
+              const href = `/certificates/${encodeURIComponent(file)}`;
 
-            return (
-              <motion.a
-                key={file}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: index * 0.05 }}
-                className="group border border-slate-200 rounded-xl bg-white p-5 flex items-start gap-4 shadow-sm hover:shadow-md hover:border-(--color-primary) transition-all duration-300"
-              >
-                <span className="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
-                  <FaFilePdf size={20} />
-                </span>
+              return (
+                <motion.a
+                  key={file}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  className="group border border-slate-200 rounded-xl bg-white p-5 flex items-start gap-4 shadow-sm hover:shadow-md hover:border-(--color-primary) transition-all duration-300"
+                >
+                  <span className="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                    <FaFilePdf size={20} />
+                  </span>
 
-                <div className="text-left min-w-0 flex-1">
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider mb-1">
-                    PDF Document
-                  </p>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-800 leading-snug">
-                    {toTitle(file)}
-                  </h3>
-                  <p className="text-[13px] text-slate-500 mt-1">{file}</p>
-                </div>
+                  <div className="text-left min-w-0 flex-1">
+                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider mb-1">
+                      PDF Document
+                    </p>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-800 leading-snug">
+                      {toTitle(file)}
+                    </h3>
+                    <p className="text-[13px] text-slate-500 mt-1">{file}</p>
+                  </div>
 
-                <span className="text-slate-400 group-hover:text-(--color-primary) transition-colors">
-                  <FaExternalLinkAlt size={14} />
-                </span>
-              </motion.a>
-            );
-          })}
+                  <span className="text-slate-400 group-hover:text-(--color-primary) transition-colors">
+                    <FaExternalLinkAlt size={14} />
+                  </span>
+                </motion.a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Other Documents Section */}
+      <section className="container my-12">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">Other Documents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {otherDocuments.map((file, index) => {
+              const href = `/certificates/${encodeURIComponent(file)}`;
+
+              return (
+                <motion.a
+                  key={file}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  className="group border border-slate-200 rounded-xl bg-white p-5 flex items-start gap-4 shadow-sm hover:shadow-md hover:border-(--color-primary) transition-all duration-300"
+                >
+                  <span className="w-11 h-11 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+                    <FaFilePdf size={20} />
+                  </span>
+
+                  <div className="text-left min-w-0 flex-1">
+                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider mb-1">
+                      Document
+                    </p>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-800 leading-snug">
+                      {toTitle(file)}
+                    </h3>
+                    <p className="text-[13px] text-slate-500 mt-1">{file}</p>
+                  </div>
+
+                  <span className="text-slate-400 group-hover:text-(--color-primary) transition-colors">
+                    <FaExternalLinkAlt size={14} />
+                  </span>
+                </motion.a>
+              );
+            })}
+          </div>
         </div>
       </section>
     </SmoothScroll>
