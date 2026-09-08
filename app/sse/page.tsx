@@ -632,6 +632,7 @@ export default function SSEPage() {
                     "ZCZP Instrument",
                     "80G Tax Exemption",
                     "Geo-Tagged Verification",
+                    "Subject to applicable law and eligibility"
                   ].map((feat, idx) => (
                     <span
                       key={idx}
@@ -966,20 +967,6 @@ export default function SSEPage() {
             highlight="Investment Goes?"
             subtitle="Complete interactive breakdown of fund allocation for the ₹1,08,73,000 Integrated Water Conservation & Groundwater Recharge Project based on official NSE Social Stock Exchange disclosures."
           />
-
-          {/* Client-provided investment pie chart image */}
-          <div className="w-full flex justify-center">
-            <div className="relative w-full max-w-4xl mx-auto">
-              <Image
-                src="/image/sse/investment-pie-chart.png"
-                alt="Investment Pie Chart - Resource Allocation Breakdown"
-                width={1200}
-                height={800}
-                className="w-full h-auto rounded-2xl shadow-lg border border-slate-200"
-                priority
-              />
-            </div>
-          </div>
 
           <InvestmentPieChart />
         </section>

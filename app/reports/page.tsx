@@ -15,9 +15,10 @@ const certificateFiles = [
 ];
 
 const otherDocuments = [
-  "GGPT_Organisation_Profile_2026-27.pdf_compressed.pdf",
-  "Registration Certificate_Guj & Eng_compressed.pdf",
-  "Sec.80G(5).pdf",
+  "GGPT_Organisation_Profile_2026-27.pdf",
+  "Registration Certificate_Guj & Eng.pdf",
+  "Sec.80G.pdf",
+  "GGPT_DFRD_2026-2_DSC_04062026.pdf",
 ];
 
 const toTitle = (fileName: string) =>
