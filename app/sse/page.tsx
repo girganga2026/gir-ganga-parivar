@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 import SmoothScroll from "../../Component/SmothScrolling";
+import { submitSseInterest } from "./actions";
 
 import {
   TrendingUp,
@@ -484,8 +485,8 @@ export default function SSEPage() {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData((prev) => ({ ...prev, [name]: checked }));
     } else if (name === "mobile") {
-      const digitsOnly = value.replace(/\D/g, "").slice(0, 10);
-      setFormData((prev) => ({ ...prev, mobile: digitsOnly }));
+      const phoneValue = value.replace(/[^\d+()\s.-]/g, "").slice(0, 25);
+      setFormData((prev) => ({ ...prev, mobile: phoneValue }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
@@ -503,16 +504,14 @@ export default function SSEPage() {
       return;
     }
 
-    // Mobile number verification (must be 10 digits)
-    const cleanMobile = formData.mobile.replace(/\D/g, "");
-    if (cleanMobile.length !== 10) {
-      setFormError("Mobile number must be a valid 10-digit number (e.g. 9876543210).");
+    // International phone verification (7-15 digits, with an optional leading +)
+    const rawMobile = formData.mobile.trim();
+    const mobileDigits = rawMobile.replace(/\D/g, "");
+    if (!/^\+?[\d\s().-]+$/.test(rawMobile) || mobileDigits.length < 7 || mobileDigits.length > 15) {
+      setFormError("Please enter a valid phone number with 7 to 15 digits, including the country code when applicable.");
       return;
     }
-    if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
-      setFormError("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
-      return;
-    }
+    const cleanMobile = `${rawMobile.startsWith("+") ? "+" : ""}${mobileDigits}`;
 
     // Email syntax verification
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -530,39 +529,21 @@ export default function SSEPage() {
     setFormLoading(true);
 
     try {
-      const apiKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
-
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: apiKey,
-          subject: `New SSE Interest Submission: ${formData.fullName.trim()}`,
-          from_name: "Girganga SSE Registration",
-          full_name: formData.fullName.trim(),
-          email: formData.email.trim(),
-          mobile: cleanMobile,
-          organization: formData.organization.trim() || "N/A",
-          designation: formData.designation.trim() || "N/A",
-          city: formData.city.trim() || "N/A",
-          state: formData.state || "Gujarat",
-          investor_category: formData.category,
-        }),
+      const resData = await submitSseInterest({
+        ...formData,
+        fullName: formData.fullName.trim(),
+        email: formData.email.trim(),
+        mobile: cleanMobile,
       });
-
-      const resData = await response.json();
 
       if (resData.success) {
         setFormSubmitted(true);
       } else {
-        setFormError(resData.message || "Failed to submit form. Please check your Web3Forms access key.");
+        setFormError(resData.message);
       }
     } catch (err: unknown) {
-      console.error("Web3Forms API submit error:", err);
-      setFormSubmitted(true);
+      console.error("SSE form submit error:", err);
+      setFormError("We could not submit your interest right now. Please try again later.");
     } finally {
       setFormLoading(false);
     }
@@ -1209,9 +1190,11 @@ export default function SSEPage() {
                       name="mobile"
                       value={formData.mobile}
                       onChange={handleFormChange}
-                      maxLength={10}
+                      inputMode="tel"
+                      autoComplete="tel"
+                      maxLength={25}
                       required
-                      placeholder="10-digit mobile number"
+                      placeholder="e.g. +91 98765 43210"
                       className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-(--color-primary) focus:border-(--color-primary) text-sm"
                     />
                   </div>
