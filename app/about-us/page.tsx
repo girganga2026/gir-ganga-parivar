@@ -258,7 +258,10 @@ const complianceBadges = [
   { label: "CSR-1 Registered", img: "/image/About page/CSR-1.webp" },
   { label: "12A & 80G Certified", img: "/image/About page/12A_80G.webp" },
   { label: "Darpan Registered", img: "/image/About page/Darpan.webp" },
-  { label: "Ministry of Jal Shakti Partner", img: "/image/About page/MinistryofJalShaktiPartner.webp" },
+  {
+    label: "Ministry of Jal Shakti Partner",
+    img: "/image/About page/MinistryofJalShaktiPartner.webp",
+  },
 ];
 
 /* ═══════════════════════════════════════
@@ -346,7 +349,6 @@ export default function AboutPage() {
                 foundation for sustainable development.
               </motion.p>
 
-
               <div className="w-full flex justify-center lg:justify-start">
                 <Link
                   href="/donate"
@@ -375,10 +377,14 @@ export default function AboutPage() {
               {/* Mobile */}
               <div className="grid grid-cols-2 gap-3 lg:hidden">
                 <motion.div className="relative h-44 rounded-2xl overflow-hidden shadow-lg col-span-2">
-                  <Image src="/image/About page/hiraba after.png"
+                  <Image
+                    src="/image/About page/hiraba after.png"
                     alt="Water conservation"
                     fill
-                    className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={75}
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-3 left-3 bg-white rounded-xl shadow px-3 py-2">
                     <p className="text-[10px] font-bold text-(--color-primary)">
@@ -387,42 +393,62 @@ export default function AboutPage() {
                   </div>
                 </motion.div>
                 <motion.div className="relative h-50 rounded-2xl overflow-hidden shadow-md">
-                  <Image src="/image/About page/jibiyaa after.png"
+                  <Image
+                    src="/image/About page/jibiyaa after.png"
                     alt="Check dam"
                     fill
-                    className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={75}
+                  />
                 </motion.div>
                 <motion.div className="relative h-50 rounded-2xl overflow-hidden shadow-md">
-                  <Image src="/image/About page/pavitram after.png"
+                  <Image
+                    src="/image/About page/pavitram after.png"
                     alt="Farmers"
                     fill
-                    className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={75}
+                  />
                 </motion.div>
               </div>
 
               {/* Desktop collage */}
               <div className="relative h-[620px] hidden lg:block">
                 <motion.div className="absolute right-0 top-0 w-[75%] h-[55%] rounded-3xl overflow-hidden shadow-xl">
-                  <Image src="/image/About page/hiraba after.png"
+                  <Image
+                    src="/image/About page/hiraba after.png"
                     alt="Check dam"
                     fill
-                    className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={75}
+                  />
                 </motion.div>
                 <motion.div className="absolute left-0 bottom-0 w-[72%] h-[62%] rounded-3xl overflow-hidden shadow-2xl">
-                  <Image src="/image/About page/jibiyaa after.png"
+                  <Image
+                    src="/image/About page/jibiyaa after.png"
                     alt="Water conservation"
                     fill
-                    className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={75}
+                  />
                   <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                 </motion.div>
                 <motion.div
                   transition={{ delay: 0.3 }}
                   className="absolute right-2 bottom-[18%] w-[32%] h-[28%] rounded-2xl overflow-hidden shadow-xl border-2 border-white"
                 >
-                  <Image src="/image/About page/pavitram after.png"
+                  <Image
+                    src="/image/About page/pavitram after.png"
                     alt="Farmers"
                     fill
-                    className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={75}
+                  />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 12, scale: 0.9 }}
@@ -443,122 +469,130 @@ export default function AboutPage() {
         {/* ══════════════════════════════════════════
     1.5 ABOUT US & COMPLIANCE
 ══════════════════════════════════════════ */}
-<section className="bg-(--color-tertiary)">
-  <div className="container">
-    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-      {/* LEFT — About Us */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={stagger}
-      >
-        <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-          <div className="h-px w-8 bg-(--color-secondary)" />
-          <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
-            About Us
-          </span>
-          <div className="h-px w-8 bg-(--color-secondary)" />
-        </div>
+        <section className="bg-(--color-tertiary)">
+          <div className="container">
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+              {/* LEFT — About Us */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={stagger}
+              >
+                <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
+                    About Us
+                  </span>
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight text-center lg:text-start">
-          A Movement Rooted in{" "}
-          <span className="text-(--color-primary)">Gujarat</span>
-        </h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight text-center lg:text-start">
+                  A Movement Rooted in{" "}
+                  <span className="text-(--color-primary)">Gujarat</span>
+                </h2>
 
-        <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center lg:text-start">
-          Girganga Parivar Trust (GGPT) is a Gujarat-based grassroots
-          organization dedicated to water conservation, groundwater
-          recharge, and sustainable rural development. Through
-          community-driven water harvesting initiatives, GGPT has created
-          and rejuvenated thousands of decentralized water conservation
-          structures across rural and urban regions of Gujarat.
-        </p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center lg:text-start">
+                  Girganga Parivar Trust (GGPT) is a Gujarat-based grassroots
+                  organization dedicated to water conservation, groundwater
+                  recharge, and sustainable rural development. Through
+                  community-driven water harvesting initiatives, GGPT has
+                  created and rejuvenated thousands of decentralized water
+                  conservation structures across rural and urban regions of
+                  Gujarat.
+                </p>
 
-        <p className="text-gray-500 text-sm leading-relaxed mb-8 text-center lg:text-start">
-          Over the last four years, GGPT has expanded its footprint across{" "}
-          <strong>{impactMetrics.districts.display} districts</strong> and{" "}
-          <strong>{impactMetrics.talukas.display} talukas</strong>,
-          positively impacting{" "}
-          <strong>{impactMetrics.locationsReached.display} locations</strong>{" "}
-          and benefiting more than{" "}
-          <strong>{impactMetrics.peopleImpacted.display.replace("+", "")}</strong>{" "}
-          people through
-          improved water availability, agricultural resilience, and climate
-          adaptation.
-        </p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8 text-center lg:text-start">
+                  Over the last four years, GGPT has expanded its footprint
+                  across{" "}
+                  <strong>{impactMetrics.districts.display} districts</strong>{" "}
+                  and <strong>{impactMetrics.talukas.display} talukas</strong>,
+                  positively impacting{" "}
+                  <strong>
+                    {impactMetrics.locationsReached.display} locations
+                  </strong>{" "}
+                  and benefiting more than{" "}
+                  <strong>
+                    {impactMetrics.peopleImpacted.display.replace("+", "")}
+                  </strong>{" "}
+                  people through improved water availability, agricultural
+                  resilience, and climate adaptation.
+                </p>
 
-        <div className="grid grid-cols-2 gap-4">
-          {[
-            { value: impactMetrics.districts.display, label: "Districts" },
-            { value: impactMetrics.talukas.display, label: "Talukas" },
-            {
-              value: impactMetrics.locationsReached.display,
-              label: "Locations Impacted",
-            },
-            {
-              value: impactMetrics.peopleImpacted.display,
-              label: "People Impacted",
-            },
-          ].map((s) => (
-            <div
-              key={s.label}
-              className="bg-white rounded-2xl p-4 text-center border border-gray-100 shadow-sm"
-            >
-              <p className="text-2xl font-bold text-(--color-primary)">
-                {s.value}
-              </p>
-              <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    {
+                      value: impactMetrics.districts.display,
+                      label: "Districts",
+                    },
+                    { value: impactMetrics.talukas.display, label: "Talukas" },
+                    {
+                      value: impactMetrics.locationsReached.display,
+                      label: "Locations Impacted",
+                    },
+                    {
+                      value: impactMetrics.peopleImpacted.display,
+                      label: "People Impacted",
+                    },
+                  ].map((s) => (
+                    <div
+                      key={s.label}
+                      className="bg-white rounded-2xl p-4 text-center border border-gray-100 shadow-sm"
+                    >
+                      <p className="text-2xl font-bold text-(--color-primary)">
+                        {s.value}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* RIGHT — Compliance & Institutional Credentials */}
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={stagger}
+              >
+                <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
+                    Compliance & Credentials
+                  </span>
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-center lg:text-start">
+                  Registered &{" "}
+                  <span className="text-(--color-primary)">Recognised</span>
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
+                  {complianceBadges.map((badge) => (
+                    <motion.div
+                      key={badge.label}
+                      variants={fadeUp}
+                      className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-(--color-primary)/25 hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      <div className="w-full aspect-square max-w-[125px] rounded-xl  flex items-center justify-center p-3">
+                        <img
+                          loading="lazy"
+                          src={badge.img}
+                          alt={badge.label}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <span className="text-xs font-semibold text-gray-800 leading-snug">
+                        {badge.label}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
-          ))}
-        </div>
-      </motion.div>
-
-{/* RIGHT — Compliance & Institutional Credentials */}
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.15 }}
-  variants={stagger}
->
-  <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-    <div className="h-px w-8 bg-(--color-secondary)" />
-    <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
-      Compliance & Credentials
-    </span>
-    <div className="h-px w-8 bg-(--color-secondary)" />
-  </div>
-
-  <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-center lg:text-start">
-    Registered &{" "}
-    <span className="text-(--color-primary)">Recognised</span>
-  </h2>
-
-  <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
-    {complianceBadges.map((badge) => (
-      <motion.div
-        key={badge.label}
-        variants={fadeUp}
-        className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-(--color-primary)/25 hover:-translate-y-0.5 transition-all duration-300"
-      >
-        <div className="w-full aspect-square max-w-[125px] rounded-xl  flex items-center justify-center p-3">
-          <img
-            loading="lazy"
-            src={badge.img}
-            alt={badge.label}
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <span className="text-xs font-semibold text-gray-800 leading-snug">
-          {badge.label}
-        </span>
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
-    </div>
-  </div>
-</section>
+          </div>
+        </section>
 
         {/* ══════════════════════════════════════════
             2. OUR ORIGIN
@@ -585,9 +619,7 @@ export default function AboutPage() {
 
                   <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight text-center lg:text-start">
                     A Grassroots Movement <br />
-                    <span className="text-(--color-primary)">
-                      Born in 2017
-                    </span>
+                    <span className="text-(--color-primary)">Born in 2017</span>
                   </h2>
 
                   <p className="text-gray-500 text-sm leading-relaxed mb-4 text-center lg:text-start">
@@ -702,7 +734,9 @@ export default function AboutPage() {
                         key={sdg.label}
                         className="flex  items-center w-70 gap-2 px-2 py-2  rounded-2xl border border-(--color-primary)/30 bg-white shadow-sm hover:shadow-md transition"
                       >
-                        <img loading="lazy" src={sdg.img}
+                        <img
+                          loading="lazy"
+                          src={sdg.img}
                           alt={sdg.label}
                           className="w-15 h-15 rounded-xl object-contain"
                         />
@@ -785,26 +819,26 @@ export default function AboutPage() {
                         }`}
                       >
                         <div
-  className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
->
-  <span className="w-10 h-10 rounded-full bg-(--color-tertiary) flex items-center justify-center shrink-0">
-    {item.type === "image" ? (
-      <img
-        loading="lazy"
-        src={item.src}
-        alt="icon"
-        className="w-6 h-6 object-contain"
-      />
-    ) : (
-      item.icon && (
-        <item.icon className="text-lg text-(--color-primary)" />
-      )
-    )}
-  </span>
-  <span className="text-xs font-bold tracking-[0.2em] uppercase text-(--color-primary) bg-(--color-tertiary) px-3 py-1 rounded-full">
-    {item.year}
-  </span>
-</div>
+                          className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
+                        >
+                          <span className="w-10 h-10 rounded-full bg-(--color-tertiary) flex items-center justify-center shrink-0">
+                            {item.type === "image" ? (
+                              <img
+                                loading="lazy"
+                                src={item.src}
+                                alt="icon"
+                                className="w-6 h-6 object-contain"
+                              />
+                            ) : (
+                              item.icon && (
+                                <item.icon className="text-lg text-(--color-primary)" />
+                              )
+                            )}
+                          </span>
+                          <span className="text-xs font-bold tracking-[0.2em] uppercase text-(--color-primary) bg-(--color-tertiary) px-3 py-1 rounded-full">
+                            {item.year}
+                          </span>
+                        </div>
                         <h3 className="font-bold text-gray-900 mb-2">
                           {item.title}
                         </h3>
@@ -961,7 +995,9 @@ export default function AboutPage() {
                   >
                     <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-(--color-tertiary) flex items-center justify-center">
                       {item.type === "image" ? (
-                        <img loading="lazy" src={item.src}
+                        <img
+                          loading="lazy"
+                          src={item.src}
                           alt="icon"
                           className="w-12 h-12 object-contain"
                         />
@@ -1037,7 +1073,9 @@ export default function AboutPage() {
               <div className="flex justify-center lg:justify-end">
                 <div className="relative w-60 h-60 md:w-100 md:h-100 rounded-full bg-(--color-primary) p-2 shadow-2xl ">
                   {/* Profile Image */}
-                  <img loading="lazy" src="/image/About page/SNI_7828.JPG"
+                  <img
+                    loading="lazy"
+                    src="/image/About page/SNI_7828.JPG"
                     alt="Dilipbhai Sakhiya"
                     className="w-full h-full object-cover rounded-full border-4 border-white"
                   />
@@ -1046,79 +1084,81 @@ export default function AboutPage() {
             </div>
             {/* Global Outreach — added below Board */}
 
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.2 }}
-  variants={fadeUp}
-  className="relative overflow-hidden bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
->
-  {/* Decorative accent */}
-  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-(--color-tertiary)" />
-  <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-(--color-secondary)/10" />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              className="relative overflow-hidden bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
+            >
+              {/* Decorative accent */}
+              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-(--color-tertiary)" />
+              <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-(--color-secondary)/10" />
 
-  <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
-    {/* LEFT — Icon + eyebrow */}
-    <div className="flex flex-col items-center lg:items-start shrink-0">
-      <div className="w-16 h-16 rounded-2xl bg-(--color-primary) flex items-center justify-center text-white shadow-lg shadow-emerald-900/20 mb-3">
-        <Globe2 size={28} strokeWidth={2} />
-      </div>
-      <span className="text-(--color-secondary) text-xs font-bold tracking-[0.2em] uppercase text-center lg:text-start">
-        Global Outreach
-      </span>
-    </div>
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+                {/* LEFT — Icon + eyebrow */}
+                <div className="flex flex-col items-center lg:items-start shrink-0">
+                  <div className="w-16 h-16 rounded-2xl bg-(--color-primary) flex items-center justify-center text-white shadow-lg shadow-emerald-900/20 mb-3">
+                    <Globe2 size={28} strokeWidth={2} />
+                  </div>
+                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.2em] uppercase text-center lg:text-start">
+                    Global Outreach
+                  </span>
+                </div>
 
-    {/* Divider */}
-    <div className="hidden lg:block w-px self-stretch bg-gray-100" />
-    <div className="lg:hidden w-full h-px bg-gray-100" />
+                {/* Divider */}
+                <div className="hidden lg:block w-px self-stretch bg-gray-100" />
+                <div className="lg:hidden w-full h-px bg-gray-100" />
 
-    {/* MIDDLE — Person info */}
-    <div className="flex-1 text-center lg:text-start">
-      <h4 className="font-bold text-xl text-gray-900">
-        Mr. Harish Bhalani
-      </h4>
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-0.5">
-        USA
-      </p>
-      <p className="text-sm text-(--color-primary) font-semibold mt-2">
-        International Outreach & Resource Mobilization Coordinator
-      </p>
+                {/* MIDDLE — Person info */}
+                <div className="flex-1 text-center lg:text-start">
+                  <h4 className="font-bold text-xl text-gray-900">
+                    Mr. Harish Bhalani
+                  </h4>
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-0.5">
+                    USA
+                  </p>
+                  <p className="text-sm text-(--color-primary) font-semibold mt-2">
+                    International Outreach & Resource Mobilization Coordinator
+                  </p>
 
-      {/* Tags */}
-      <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-4">
-        {[
-          "USA Coordination",
-          "NRI Donor Engagement",
-          "Awareness Meetings",
-          "Community Partnerships",
-        ].map((tag) => (
-          <span
-            key={tag}
-            className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-(--color-tertiary) text-(--color-primary) border border-(--color-primary)/10"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
+                  {/* Tags */}
+                  <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-4">
+                    {[
+                      "USA Coordination",
+                      "NRI Donor Engagement",
+                      "Awareness Meetings",
+                      "Community Partnerships",
+                    ].map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-(--color-tertiary) text-(--color-primary) border border-(--color-primary)/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-    {/* RIGHT — Contact pill */}
-    <div className="flex justify-center lg:justify-end shrink-0">
-      <a
-        href="tel:+14109710291"
-        className="group inline-flex items-center gap-2.5 bg-(--color-primary) text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:brightness-110 transition-all"
-      >
-        <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
-          <Phone size={15} />
-        </span>
-        <span className="flex flex-col items-start leading-tight">
-          <span className="text-[10px] font-normal text-white/70">Call</span>
-          <span>+1 (410) 971-0291</span>
-        </span>
-      </a>
-    </div>
-  </div>
-</motion.div>
+                {/* RIGHT — Contact pill */}
+                <div className="flex justify-center lg:justify-end shrink-0">
+                  <a
+                    href="tel:+14109710291"
+                    className="group inline-flex items-center gap-2.5 bg-(--color-primary) text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:brightness-110 transition-all"
+                  >
+                    <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
+                      <Phone size={15} />
+                    </span>
+                    <span className="flex flex-col items-start leading-tight">
+                      <span className="text-[10px] font-normal text-white/70">
+                        Call
+                      </span>
+                      <span>+1 (410) 971-0291</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
             {/* Core Values */}
             <div>
               <div className="text-center mb-12">
@@ -1132,9 +1172,7 @@ export default function AboutPage() {
 
                 <h3 className="text-3xl font-bold">
                   Principles that{" "}
-                  <span className="text-(--color-primary)">
-                    Guide Our Work
-                  </span>
+                  <span className="text-(--color-primary)">Guide Our Work</span>
                 </h3>
               </div>
 
@@ -1172,7 +1210,9 @@ export default function AboutPage() {
                   >
                     {/* Image */}
                     <div className="relative h-auto overflow-hidden">
-                      <img loading="lazy" src={item.img}
+                      <img
+                        loading="lazy"
+                        src={item.img}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                       />
@@ -1217,10 +1257,14 @@ export default function AboutPage() {
                   <div className="absolute w-[240px] h-[240px] sm:w-[290px] sm:h-[290px] md:w-[360px] md:h-[360px] rounded-full border border-(--color-primary)/50" />
 
                   <div className="relative w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden shadow-2xl shadow-emerald-900/20 border-4 border-white z-10">
-                    <Image src="/image/About page/mission (1).jpeg"
+                    <Image
+                      src="/image/About page/mission (1).jpeg"
                       alt="Water conservation work"
                       fill
-                      className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={75}
+                    />
                   </div>
 
                   {/* Stat badge — top right */}
@@ -1271,9 +1315,7 @@ export default function AboutPage() {
                   {/* Heading */}
                   <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                     Mission &amp; Vision <br />
-                    <span className="text-(--color-primary)">
-                      For Gujarat
-                    </span>
+                    <span className="text-(--color-primary)">For Gujarat</span>
                   </h2>
 
                   <div className="w-full h-px bg-gray-100" />
