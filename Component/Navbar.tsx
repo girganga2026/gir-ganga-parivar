@@ -20,6 +20,9 @@ export default function Navbar() {
   const [desktopMediaOpen, setDesktopMediaOpen] = useState(false);
   const [mobileMediaOpen, setMobileMediaOpen] = useState(false);
 
+  const [desktopAboutOpen, setDesktopAboutOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+
   // ✅ NEW: Separate states for Our Work dropdown
   const [desktopWorkOpen, setDesktopWorkOpen] = useState(false);
   const [mobileWorkOpen, setMobileWorkOpen] = useState(false);
@@ -27,9 +30,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const mediaRef = useRef<HTMLLIElement>(null);
+  const aboutRef = useRef<HTMLLIElement>(null);
   const workRef = useRef<HTMLLIElement>(null); // ✅ NEW ref for Our Work
 
   const isActive = (path: string) => pathname === path;
+  const isAboutActive = pathname.startsWith("/about-us");
   const isWorkActive = pathname.startsWith("/Our-Work");
   const isMediaActive =
     pathname.startsWith("/photos") ||
@@ -44,6 +49,8 @@ export default function Navbar() {
         setDesktopMediaOpen(false);
       if (workRef.current && !workRef.current.contains(e.target as Node))
         setDesktopWorkOpen(false);
+      if (aboutRef.current && !aboutRef.current.contains(e.target as Node))
+        setDesktopAboutOpen(false);
     };
     document.addEventListener("mousedown", handle);
     return () => document.removeEventListener("mousedown", handle);
@@ -215,12 +222,52 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* ABOUT US */}
-            <li className="relative group">
-              <Link href="/about-us" className={linkCls("/about-us")}>
+            {/* ABOUT US with dropdown */}
+            <li
+              className="relative"
+              ref={aboutRef}
+              onMouseEnter={() => setDesktopAboutOpen(true)}
+              onMouseLeave={() => setDesktopAboutOpen(false)}
+            >
+              <Link
+                href="/about-us"
+                onClick={() => setDesktopAboutOpen(!desktopAboutOpen)}
+                className={`${linkCls(isAboutActive ? "/about-us" : "")} gap-1 flex items-center`}
+              >
                 About Us
-                <span className={underline(isActive("/about-us"))} />
+                <FiChevronDown
+                  size={11}
+                  className={`mt-px transition-transform duration-200 ${
+                    desktopAboutOpen ? "rotate-180" : ""
+                  }`}
+                />
+                <span
+                  className={underline(
+                    isAboutActive || desktopAboutOpen,
+                    false,
+                  )}
+                />
               </Link>
+
+              <div className={dropPanel(desktopAboutOpen)}>
+                <div className="absolute -top-[7px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45" />
+                {[
+                  { label: "About Us", href: "/about-us" },
+                  {
+                    label: "Foundation USA",
+                    href: "/about-us/foundation-usa",
+                  },
+                ].map(({ label, href }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setDesktopAboutOpen(false)}
+                    className={dropCls(href)}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
             </li>
 
             {/* ✅ OUR WORK with dropdown */}
@@ -384,6 +431,7 @@ export default function Navbar() {
             onClick={() => {
               setMobileMediaOpen(false);
               setMobileWorkOpen(false);
+              setMobileAboutOpen(false);
               setMenuOpen(true);
             }}
             aria-label="Open menu"
@@ -544,19 +592,70 @@ export default function Navbar() {
             </Link>
           </li>
 
-          {/* About */}
-          <li>
-            <Link
-              href="/about-us"
-              onClick={() => setMenuOpen(false)}
-              className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
-                isActive("/about-us")
-                  ? "text-(--color-primary)"
-                  : "text-slate-800"
+          {/* About with mobile dropdown */}
+          <li className="relative">
+            <div className="flex items-center justify-between w-full py-3.5 border-b border-slate-50">
+              <Link
+                href="/about-us"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setMobileAboutOpen(false);
+                }}
+                className={`text-lg font-bold tracking-wide flex-1 ${
+                  isAboutActive
+                    ? "text-(--color-primary)"
+                    : "text-slate-800"
+                }`}
+              >
+                About Us
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileAboutOpen((prev) => !prev)}
+                className="pl-4 py-1"
+                aria-label="Toggle About Us menu"
+                aria-expanded={mobileAboutOpen}
+              >
+                <FiChevronDown
+                  className={`transition-transform duration-300 ${
+                    mobileAboutOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </button>
+            </div>
+
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileAboutOpen ? "max-h-32 py-2" : "max-h-0"
               }`}
             >
-              About Us
-            </Link>
+              <ul className="pl-5 space-y-3 border-l-2 border-(--color-primary) mt-1">
+                {[
+                  { label: "About Us", href: "/about-us" },
+                  {
+                    label: "Girganga Foundation USA",
+                    href: "/about-us/foundation-usa",
+                  },
+                ].map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={() => {
+                        setMenuOpen(false);
+                        setMobileAboutOpen(false);
+                      }}
+                      className={`text-[15px] font-semibold ${
+                        isActive(href)
+                          ? "text-(--color-primary)"
+                          : "text-slate-500"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </li>
 
           {/* ✅ Our Work with mobile dropdown */}

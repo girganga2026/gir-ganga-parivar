@@ -12,6 +12,7 @@ const certificateFiles = [
   "Audit Report_2024-25.pdf",
   "Annual Activity Report 2024-25.pdf",
   "Audit Report_2025-26.pdf",
+  "Annual Activity Report_2025-26.pdf",
 ];
 
 const otherDocuments = [

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-// import "leaflet/dist/leaflet.css";
 import { MapPin, Waves, Search, Eye, EyeOff, Award } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
