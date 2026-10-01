@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import SmoothScroll from "../../../Component/SmothScrolling";
+import SmoothScroll from "../../Component/SmothScrolling";
 import {
   BadgeCheck,
   CalendarDays,
@@ -30,7 +30,7 @@ const foundationImages = {
   projectOne: "/image/foundation-usa/20240929_150356_HDR.jpg",
   projectTwo: "/image/foundation-usa/ટોડી 2.jpg",
   qrCode:
-    "/image/foundation-usa/88886f1e-3bae-4515-93c7-7f64e4a2a0ff.jpg",
+    "/image/foundation-usa/Screenshot 2026-10-01 110735.png",
 };
 
 const supportAreas = [
@@ -80,14 +80,13 @@ export default function FoundationUsaPage() {
         <div className="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-(--color-secondary)/20" />
         <div className="container relative py-16 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            <div>
+            <div className="@container">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-(--color-primary)/20 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-(--color-primary) shadow-sm">
                 <Globe2 size={16} />
                 United States
               </div>
-              <h1 className="max-w-4xl text-4xl font-black leading-[1.08] text-slate-900 sm:text-5xl lg:text-6xl">
-                Girganga Foundation
-                <span className="block text-(--color-primary)">Inc., USA</span>
+              <h1 className="max-w-4xl text-4xl font-black leading-[1.08] text-slate-900 sm:whitespace-nowrap sm:text-[clamp(1.75rem,5cqw,3.75rem)]">
+                Girganga Foundation <span className="text-(--color-primary)">Inc., USA</span>
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-semibold leading-relaxed text-slate-600 sm:text-xl">
                 A U.S. charitable organization supporting water security,
@@ -105,7 +104,7 @@ export default function FoundationUsaPage() {
               <div className="absolute inset-8 rounded-full bg-white shadow-2xl shadow-sky-900/10" />
               <div className="relative flex h-56 w-56 flex-col items-center justify-center rounded-full bg-linear-to-br from-(--color-primary) to-[#1263a5] text-center text-white shadow-xl sm:h-64 sm:w-64">
                 <Droplets size={64} strokeWidth={1.5} />
-                <span className="mt-4 text-2xl font-black uppercase tracking-wide">Gir Ganga</span>
+                <span className="mt-4 text-2xl font-black uppercase tracking-wide">GirGanga</span>
                 <span className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Foundation USA</span>
               </div>
               <Sprout className="absolute bottom-6 right-3 text-[#65a30d]" size={58} strokeWidth={1.5} />
@@ -124,9 +123,9 @@ export default function FoundationUsaPage() {
           <div className="grid gap-7 md:grid-cols-2">
             {[
               {
-                name: "Harishbhai Bhalani",
+                name: "Mr. Haris Bhalani",
                 role: "Chairman",
-                location: "Girganga Foundation Inc., USA",
+                location: "Maryland, USA",
                 image: foundationImages.chairman,
               },
               {

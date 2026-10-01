@@ -34,7 +34,7 @@ export default function Navbar() {
   const workRef = useRef<HTMLLIElement>(null); // ✅ NEW ref for Our Work
 
   const isActive = (path: string) => pathname === path;
-  const isAboutActive = pathname.startsWith("/about-us");
+  const isAboutActive = pathname === "/about-us" || pathname === "/impact";
   const isWorkActive = pathname.startsWith("/Our-Work");
   const isMediaActive =
     pathname.startsWith("/photos") ||
@@ -232,7 +232,7 @@ export default function Navbar() {
               <Link
                 href="/about-us"
                 onClick={() => setDesktopAboutOpen(!desktopAboutOpen)}
-                className={`${linkCls(isAboutActive ? "/about-us" : "")} gap-1 flex items-center`}
+                className={`${linkCls(isAboutActive ? pathname : "")} gap-1 flex items-center`}
               >
                 About Us
                 <FiChevronDown
@@ -253,10 +253,7 @@ export default function Navbar() {
                 <div className="absolute -top-[7px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45" />
                 {[
                   { label: "About Us", href: "/about-us" },
-                  {
-                    label: "Foundation USA",
-                    href: "/about-us/foundation-usa",
-                  },
+                  { label: "Impact", href: "/impact" },
                 ].map(({ label, href }) => (
                   <Link
                     key={href}
@@ -316,11 +313,14 @@ export default function Navbar() {
               </div>
             </li>
 
-            {/* IMPACT */}
+            {/* FOUNDATION USA */}
             <li className="relative group">
-              <Link href="/impact" className={linkCls("/impact")}>
-                Impact
-                <span className={underline(isActive("/impact"))} />
+              <Link
+                href="/foundation-usa"
+                className={linkCls("/foundation-usa")}
+              >
+                Foundation USA
+                <span className={underline(isActive("/foundation-usa"))} />
               </Link>
             </li>
 
@@ -592,7 +592,7 @@ export default function Navbar() {
             </Link>
           </li>
 
-          {/* About with mobile dropdown */}
+          {/* About Us with mobile dropdown */}
           <li className="relative">
             <div className="flex items-center justify-between w-full py-3.5 border-b border-slate-50">
               <Link
@@ -632,10 +632,7 @@ export default function Navbar() {
               <ul className="pl-5 space-y-3 border-l-2 border-(--color-primary) mt-1">
                 {[
                   { label: "About Us", href: "/about-us" },
-                  {
-                    label: "Girganga Foundation USA",
-                    href: "/about-us/foundation-usa",
-                  },
+                  { label: "Impact", href: "/impact" },
                 ].map(({ label, href }) => (
                   <li key={href}>
                     <Link
@@ -738,18 +735,18 @@ export default function Navbar() {
             </div>
           </li>
 
-          {/* Impact */}
+          {/* Foundation USA */}
           <li>
             <Link
-              href="/impact"
+              href="/foundation-usa"
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
-                isActive("/impact")
+                isActive("/foundation-usa")
                   ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
-              Impact
+              Foundation USA
             </Link>
           </li>
 

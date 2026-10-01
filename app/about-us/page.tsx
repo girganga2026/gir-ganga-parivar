@@ -1075,7 +1075,7 @@ export default function AboutPage() {
     {/* MIDDLE — Person info */}
     <div className="flex-1 text-center lg:text-start">
       <h4 className="font-bold text-xl text-gray-900">
-        Mr. Harishbhai Bhalani
+        Mr. Harish Bhalani
       </h4>
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-0.5">
         USA
