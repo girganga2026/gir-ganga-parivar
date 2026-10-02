@@ -12,7 +12,6 @@ import {
   Leaf,
   Mail,
   MapPin,
-  Sprout,
   Users,
 } from "lucide-react";
 
@@ -99,15 +98,15 @@ export default function FoundationUsaPage() {
               </div>
             </div>
 
-            <div className="relative mx-auto flex h-80 w-80 items-center justify-center sm:h-96 sm:w-96">
-              <div className="absolute inset-0 rounded-full border border-dashed border-(--color-primary)/40" />
-              <div className="absolute inset-8 rounded-full bg-white shadow-2xl shadow-sky-900/10" />
-              <div className="relative flex h-56 w-56 flex-col items-center justify-center rounded-full bg-linear-to-br from-(--color-primary) to-[#1263a5] text-center text-white shadow-xl sm:h-64 sm:w-64">
-                <Droplets size={64} strokeWidth={1.5} />
-                <span className="mt-4 text-2xl font-black uppercase tracking-wide">GirGanga</span>
-                <span className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Foundation USA</span>
-              </div>
-              <Sprout className="absolute bottom-6 right-3 text-[#65a30d]" size={58} strokeWidth={1.5} />
+            <div className="relative mx-auto flex h-72 w-72 items-center justify-center rounded-full p-3 sm:h-80 sm:w-80 sm:p-4">
+              <Image
+                src="/image/girganga-parivar-trust.png"
+                alt="Girganga Parivar Trust"
+                width={288}
+                height={288}
+                priority
+                className="h-full w-full object-contain"
+              />
             </div>
           </div>
         </div>

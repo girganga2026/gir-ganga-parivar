@@ -586,7 +586,7 @@ export default function SSEPage() {
                 initial="hidden"
                 animate="show"
                 variants={staggerContainer}
-                className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left"
+                className="lg:col-span-6 space-y-5 sm:space-y-6 text-center lg:text-left"
               >
                 <motion.h1
                   variants={fadeUp}
@@ -643,10 +643,10 @@ export default function SSEPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="lg:col-span-5"
+                className="lg:col-span-6"
               >
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white group">
-                  <div className="relative h-52 sm:h-72 w-full">
+                  <div className="relative aspect-[722/507] w-full">
                     <Image
                       src="/image/sse/nse-social-stock-exchange.png"
                       alt="GGPT Water Conservation Project on NSE SSE"
@@ -654,10 +654,10 @@ export default function SSEPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
+                    <div className="absolute inset-0" />
                   </div>
 
-                  <div className="p-4 sm:p-6 space-y-4 relative z-10 -mt-8 sm:-mt-10 bg-white">
+                  <div className="relative z-10 space-y-4 bg-white p-4 sm:p-6">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-(--color-primary) bg-[#e6f7fb] px-3 py-1 rounded-full border border-(--color-primary)/30">
                         NSE SSE Public Issue

@@ -820,7 +820,7 @@ export default function AboutPage() {
                       >
                         <div
                           className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
-                        >
+                        > 
                           <span className="w-10 h-10 rounded-full bg-(--color-tertiary) flex items-center justify-center shrink-0">
                             {item.type === "image" ? (
                               <img

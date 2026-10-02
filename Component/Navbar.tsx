@@ -316,11 +316,11 @@ export default function Navbar() {
             {/* FOUNDATION USA */}
             <li className="relative group">
               <Link
-                href="/foundation-usa"
-                className={linkCls("/foundation-usa")}
+                href="/girganga-foundation-usa"
+                className={linkCls("/girganga-foundation-usa")}
               >
-                Foundation USA
-                <span className={underline(isActive("/foundation-usa"))} />
+                 Girganga Foundation
+                <span className={underline(isActive("/girganga-foundation-usa"))} />
               </Link>
             </li>
 
@@ -738,15 +738,15 @@ export default function Navbar() {
           {/* Foundation USA */}
           <li>
             <Link
-              href="/foundation-usa"
+              href="/girganga-foundation-usa"
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
-                isActive("/foundation-usa")
+                isActive("/girganga-foundation-usa")
                   ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
-              Foundation USA
+               Girganga Foundation
             </Link>
           </li>
 
