@@ -98,12 +98,12 @@ export default function FoundationUsaPage() {
               </div>
             </div>
 
-            <div className="relative mx-auto flex h-72 w-72 items-center justify-center rounded-full p-3 sm:h-80 sm:w-80 sm:p-4">
+            <div className="relative mx-auto flex h-75 w-75 items-center justify-center rounded-full p-3 sm:h-85 sm:w-85 sm:p-4">
               <Image
-                src="/image/girganga-parivar-trust.png"
+                src="/image/GG LOGO.png"
                 alt="Girganga Parivar Trust"
-                width={288}
-                height={288}
+                width={299}
+                height={299}
                 priority
                 className="h-full w-full object-contain"
               />
